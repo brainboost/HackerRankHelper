@@ -1,8 +1,8 @@
 # HackerRankHelper
 Visual Studio solution for doing HackerRank tests in C#
 
-Inspired by the GitHub project https://github.com/roufamatic/HackerRankTemplate. Credit to @roufamatic.
-I made it xUnit-testable and upgrade to use the .Net Core.
+Inspired by the [this project](https://github.com/roufamatic/HackerRankTemplate/), credit to @roufamatic.
+I made it xUnit-testable and upgrade it to use the .Net Core.
 
 The program has one stub method called *SolvePuzzle* which takes an IReaderWriter parameter. Use the IReaderWriter methods to interact with the console and save method results. 
 Copy the method from the HackerRank page into the partial class Solution and call it from *SolvePuzzle* (see the FizzBuzz sample).
