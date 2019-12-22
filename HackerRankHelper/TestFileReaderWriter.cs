@@ -6,10 +6,10 @@ namespace HackerRankHelper
 {
     public class TestFileReaderWriter : ReaderWriterBase
     {
-        private readonly TextReader _myReader;
-        private readonly TextReader _myOutputReader;
-        private readonly StringBuilder _currentLine = new StringBuilder();
-        private int _currentLineNumber = 1;
+        protected readonly TextReader _myReader;
+        protected readonly TextReader _myOutputReader;
+        protected readonly StringBuilder _currentLine = new StringBuilder();
+        protected int _currentLineNumber = 1;
         public TestFileReaderWriter(string inputFile = "input.txt", string outputFile = "expected.txt")
         {
             _myReader = File.OpenText(inputFile);
@@ -44,7 +44,7 @@ namespace HackerRankHelper
             WriteLine();
         }
 
-        private void CheckCurrentLine()
+        protected void CheckCurrentLine()
         {
             var nextLine = _myOutputReader.ReadLine()?.Trim();
             var currentLine = _currentLine.ToString().Trim();
