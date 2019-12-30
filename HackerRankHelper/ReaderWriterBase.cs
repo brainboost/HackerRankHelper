@@ -36,6 +36,11 @@ namespace HackerRankHelper
             return Array.ConvertAll(ReadLine().Trim().Split(' '), int.Parse);
         }
 
+        public long[] ReadLineToLongArray()
+        {
+            return Array.ConvertAll(ReadLine().Trim().Split(' '), long.Parse);
+        }
+
         public int[] ReadLinesToIntArray()
         {
             var result = new List<int>();

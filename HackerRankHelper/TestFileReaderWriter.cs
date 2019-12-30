@@ -12,14 +12,14 @@ namespace HackerRankHelper
         protected int _currentLineNumber = 1;
         public TestFileReaderWriter(string inputFile = "input.txt", string outputFile = "expected.txt")
         {
-            _myReader = File.OpenText(inputFile);
+            _myReader = !string.IsNullOrEmpty(inputFile) ? File.OpenText(inputFile) : null;
             _myOutputReader = !string.IsNullOrEmpty(outputFile) && File.Exists(outputFile)
                 ? File.OpenText(outputFile)
                 : null;
         }
         public override string ReadLine()
         {
-            return _myReader.ReadLine();
+            return _myReader?.ReadLine();
         }
 
         public override void WriteLine()
@@ -46,7 +46,7 @@ namespace HackerRankHelper
 
         protected void CheckCurrentLine()
         {
-            var nextLine = _myOutputReader.ReadLine()?.Trim();
+            var nextLine = _myOutputReader?.ReadLine()?.Trim();
             var currentLine = _currentLine.ToString().Trim();
 
             if (nextLine != currentLine) { throw new Exception($"Error: line {_currentLineNumber}. Expected {nextLine}, actual {currentLine}"); }
@@ -56,11 +56,8 @@ namespace HackerRankHelper
         {
             foreach (var tr in new[] { _myReader, _myOutputReader })
             {
-                if (tr != null)
-                {
-                    tr.Close();
-                    tr.Dispose();
-                }
+                tr?.Close();
+                tr?.Dispose();
             }
         }
     }
